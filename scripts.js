@@ -30,6 +30,34 @@ function find_network_ip(ip, mask) {
 	return ip_li.join('.');
 }
 
+function find_host_num(mask) {
+	return Math.pow(2, 32-mask);
+}
+
+function find_usable_host(host) {
+	var usable = host-2;
+	if (usable < 0) {
+		usable = 0;
+	}
+	return usable;
+}
+
+function find_wildcard(mask) {
+	mask = make_bi_maskip(mask);
+	var invert = '';
+	for (var i = 0; i < mask.length; i++) {
+		if (mask[i] == '1') {
+			invert += '0';
+		} else if (mask[i] == '0') {
+			invert += '1';
+		} else {
+			invert += mask[i];
+		}
+	}
+	console.log(invert);
+	return bi_to_deci(invert);
+}
+
 for (var i = 1; i <= 32; i++) {
  	$('select#subnet').append("<option value="+i+">"+ bi_to_deci(make_bi_maskip(i)) +'/'+i+"</option>");
 }
@@ -39,7 +67,11 @@ $('form').submit(function(e){
  	var ip = $('input#Inputip').val();
  	var subnet = $('select#subnet').val();
  	var network_addr = find_network_ip(ip, subnet);
+ 	var host_num = find_host_num(subnet);
+	var usable_host = find_usable_host(host_num);
  	console.log(ip);
  	console.log(subnet);
  	console.log(network_addr);
+ 	console.log(host_num);
+	console.log(usable_host);
 });
