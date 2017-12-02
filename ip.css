@@ -1,0 +1,43 @@
+button.btn.btn-default{
+  background-color:transparent;
+  color:#b36a65;
+  padding:16px 20px;
+  text-align:center;
+  text-decoration:none;
+  display:inline-block;
+  font-size:16px;
+  transition-duration:0.4s;
+  cursor:pointer;
+  margin-top: 20px;
+  margin-left:1080px; 
+  border: transparent;
+}
+
+button.btn.btn-default:hover{
+  background-color:transparent;
+  color:rgb(255,255,256);
+}
+
+body.ip-body{
+  background:#ffe3e6;
+}
+
+div.form-group{
+  margin-top:20px; 
+  color: #b36a65;
+}
+.form-control{
+  background: #F0F0F0;
+  color: #b36a65;
+}
+
+table.table{
+  color: #b36a65;
+}
+h2.header{
+  color: #680000;
+}
+
+h4.header{
+  color: #680000;
+}
